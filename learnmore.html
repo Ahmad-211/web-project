@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn More - QueryNest</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg,  #1a222e, #29163e, #0f3460);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #6a11cb; /* Accent color */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #2575fc; /* Accent color */
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .navbar .nav-links a {
+      margin: 0 1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #6a11cb; /* Accent color */
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .about h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .about .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about .content h3 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #6a11cb; /* Accent color */
+    }
+
+    .about .content p {
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .about .content ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+    }
+
+    .about .content ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 4rem 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .features .feature-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .features .card {
+      background: rgba(255, 255, 255, 0.1); /* Card background */
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .features .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .features .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .features .card p {
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+    }
+
+    /* Team Section */
+    .team {
+      padding: 4rem 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .team h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .team .team-members {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .team .member {
+      background: rgba(255, 255, 255, 0.1); /* Card background */
+      padding: 2rem;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team .member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .team .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .team .member h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .team .member p {
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8); /* Text color */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">QueryNest</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="registration.html">Register</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>About QueryNest</h1>
+      <p>Learn more about our mission, vision, values, and the team behind the platform.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <div class="content">
+      <h3>Our Story</h3>
+      <p>
+        QueryNest was founded in 2023 with a simple goal: to create a platform where people can connect, 
+        share knowledge, and find solutions to their problems. Whether you're a beginner or an expert, our 
+        community is here to support you. We believe in the power of collaboration and aim to foster a space 
+        where everyone can learn and grow together.
+      </p>
+
+      <h3>Our Mission</h3>
+      <p>
+        Our mission is to empower individuals by providing a platform where they can ask questions, share 
+        expertise, and engage with a global community. We strive to make knowledge accessible to everyone, 
+        regardless of their background or experience level.
+      </p>
+
+      <h3>Our Vision</h3>
+      <p>
+        We envision a world where knowledge is freely shared, and no one is left behind. By connecting people 
+        and fostering meaningful interactions, we aim to create a more informed and empowered global community.
+      </p>
+
+      <h3>Our Values</h3>
+      <ul>
+        <li><strong>Collaboration</strong>: We believe in the power of working together to solve problems.</li>
+        <li><strong>Inclusivity</strong>: Everyone is welcome, regardless of their background or expertise.</li>
+        <li><strong>Transparency</strong>: We are committed to being open and honest in everything we do.</li>
+        <li><strong>Innovation</strong>: We continuously strive to improve and innovate our platform.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Ask Questions</h3>
+        <p>Post your questions and get answers from a community of experts and enthusiasts.</p>
+      </div>
+      <div class="card">
+        <h3>Share Knowledge</h3>
+        <p>Help others by answering their questions and sharing your expertise.</p>
+      </div>
+      <div class="card">
+        <h3>Engage & Learn</h3>
+        <p>Upvote, comment, and interact with others to learn and grow together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Our Team</h2>
+    <div class="team-members">
+      <div class="member">
+        <h3>Muhammad Ahmad Nadeem</h3>
+        <p>Founder & CEO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 QueryNest. All rights reserved.</p>
+  </footer>
+</body>
+</html>

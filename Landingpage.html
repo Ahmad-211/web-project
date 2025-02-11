@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QueryNest</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg,  #1a222e, #29163e, #0f3460);
+
+
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #6a11cb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #2575fc;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .navbar .nav-links a {
+      margin: 0 1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #6a11cb;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .hero .cta-buttons .btn {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero .cta-buttons .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 4rem 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .features .feature-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .features .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .features .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .features .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .features .card p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section {
+      margin: 1rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0.5rem 0;
+    }
+
+    .footer-section a:hover {
+      color: #6a11cb;
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">QueryNest</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="login.html">Login</a>
+      <a href="registration.html">Register</a> <!-- Updated link -->
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Welcome to QueryNest</h1>
+      <p>Join a vibrant community where you can ask questions, share knowledge, and connect with experts from around the world.</p>
+      <div class="cta-buttons">
+        <a href="learnmore.html" class="btn">Learn More</a> <!-- Updated link -->
+        <a href="registration.html" class="btn">Get Started</a> <!-- Updated link -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Ask Questions</h3>
+        <p>Post your questions and get answers from a community of experts and enthusiasts.</p>
+      </div>
+      <div class="card">
+        <h3>Share Knowledge</h3>
+        <p>Help others by answering their questions and sharing your expertise.</p>
+      </div>
+      <div class="card">
+        <h3>Engage & Learn</h3>
+        <p>Upvote, comment, and interact with others to learn and grow together.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>QueryNest</h3>
+        <a href="#">Questions</a>
+        <a href="#">Help</a>
+        <a href="#">Chat</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="#">About</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2023 QueryNest. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
