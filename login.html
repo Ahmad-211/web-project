@@ -76,14 +76,16 @@
       color: #2575fc;
     }
   </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <h1>Login</h1>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Password" required>
-    <button>Login</button>
-    <a href="register.html">Don't have an account? Register</a>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button onclick="loginUser()">Login</button>
+    <a href="forget.html">Forgot Password?</a>
+    <a href="registration.html">Don't have an account? Register</a>
   </div>
 </body>
 </html>
