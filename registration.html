@@ -76,14 +76,15 @@
       color: #2575fc;
     }
   </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <h1>Register</h1>
-    <input type="text" placeholder="Username" required>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Password" required>
-    <button>Register</button>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="registerUser()">Register</button>
     <a href="login.html">Already have an account? Login</a>
   </div>
 </body>
