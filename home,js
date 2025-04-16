@@ -1,0 +1,263 @@
+// Current user session
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+
+// Questions data
+let questions = JSON.parse(localStorage.getItem('questions')) || [
+  {
+    id: 1,
+    title: "How to center a div in CSS?",
+    content: "I'm trying to center a div both horizontally and vertically. What's the best way to do this in modern CSS?",
+    author: "user1@example.com",
+    keywords: ["css", "centering", "div"],
+    upvotes: 12,
+    downvotes: 2,
+    answers: []
+  },
+  {
+    id: 2,
+    title: "What is the difference between let and var in JavaScript?",
+    content: "I'm confused about the difference between `let` and `var`. Can someone explain with examples?",
+    author: "user2@example.com",
+    keywords: ["javascript", "variables", "let", "var"],
+    upvotes: 8,
+    downvotes: 1,
+    answers: []
+  }
+];
+
+// DOM elements
+const elements = {
+  uploadButton: document.getElementById('uploadButton'),
+  questionModal: document.getElementById('questionModal'),
+  cancelQuestion: document.getElementById('cancelQuestion'),
+  questionForm: document.getElementById('questionForm'),
+  questionFeed: document.getElementById('questionFeed'),
+  searchInput: document.getElementById('searchInput'),
+  searchButton: document.getElementById('searchButton'),
+  logoutButton: document.getElementById('logoutButton'),
+  usernameDisplay: document.getElementById('usernameDisplay')
+};
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', initApp);
+
+function initApp() {
+  checkAuth();
+  displayQuestions(questions);
+  setupEventListeners();
+}
+
+function setupEventListeners() {
+  if (elements.uploadButton) elements.uploadButton.addEventListener('click', showQuestionForm);
+  if (elements.cancelQuestion) elements.cancelQuestion.addEventListener('click', hideQuestionForm);
+  if (elements.questionForm) elements.questionForm.addEventListener('submit', handleQuestionSubmit);
+  if (elements.searchButton) elements.searchButton.addEventListener('click', searchQuestions);
+  if (elements.searchInput) elements.searchInput.addEventListener('keypress', handleSearchKeypress);
+  if (elements.logoutButton) elements.logoutButton.addEventListener('click', logoutUser);
+}
+
+function handleSearchKeypress(e) {
+  if (e.key === 'Enter') searchQuestions();
+}
+
+// Authentication functions
+function checkAuth() {
+  if (!currentUser) {
+    redirectToLogin();
+    return;
+  }
+
+  if (elements.usernameDisplay) elements.usernameDisplay.textContent = currentUser.email;
+  if (elements.uploadButton) elements.uploadButton.style.display = 'block';
+  if (elements.logoutButton) elements.logoutButton.style.display = 'block';
+}
+
+function redirectToLogin() {
+  window.location.href = 'login.html';
+}
+
+function logoutUser() {
+  localStorage.removeItem('currentUser');
+  redirectToLogin();
+}
+
+// Question display functions
+function displayQuestions(questionsToDisplay) {
+  if (!elements.questionFeed) return;
+
+  elements.questionFeed.innerHTML = '';
+  
+  questionsToDisplay.forEach(question => {
+    const isAuthor = currentUser && question.author === currentUser.email;
+    const questionElement = document.createElement('div');
+    questionElement.className = 'question';
+    
+    questionElement.innerHTML = `
+      <h2>${question.title}</h2>
+      <p>${question.content}</p>
+      <p class="keywords"><small>Keywords: ${question.keywords.join(', ')}</small></p>
+      <div class="meta">
+        <span class="author">Asked by: ${question.author}</span>
+        <div class="actions">
+          <button class="vote-btn" onclick="upvoteQuestion(${question.id})">
+            <span class="icon">↑</span> ${question.upvotes}
+          </button>
+          <button class="vote-btn" onclick="downvoteQuestion(${question.id})">
+            <span class="icon">↓</span> ${question.downvotes}
+          </button>
+          ${!isAuthor ? `<button class="answer-btn" onclick="showAnswerForm(${question.id})">Answer</button>` : ''}
+        </div>
+      </div>
+      ${isAuthor ? `
+        <div class="author-actions">
+          <button class="edit-btn" onclick="editQuestion(${question.id})">Edit</button>
+          <button class="delete-btn" onclick="deleteQuestion(${question.id})">Delete</button>
+        </div>
+      ` : ''}
+    `;
+    
+    elements.questionFeed.appendChild(questionElement);
+  });
+}
+
+// Question form functions
+function showQuestionForm() {
+  if (!currentUser || !elements.questionModal) return;
+  elements.questionForm.reset();
+  delete elements.questionForm.dataset.editing;
+  elements.questionModal.style.display = 'flex';
+}
+
+function hideQuestionForm() {
+  if (elements.questionModal) elements.questionModal.style.display = 'none';
+}
+
+function handleQuestionSubmit(e) {
+  e.preventDefault();
+  if (!currentUser) return;
+
+  const editingId = elements.questionForm.dataset.editing;
+  if (editingId) {
+    updateQuestion(parseInt(editingId));
+  } else {
+    addNewQuestion();
+  }
+  hideQuestionForm();
+}
+
+function addNewQuestion() {
+  const title = document.getElementById('questionTitle')?.value;
+  const content = document.getElementById('questionDetails')?.value;
+  const keywords = document.getElementById('questionKeywords')?.value
+    .split(',')
+    .map(k => k.trim().toLowerCase())
+    .filter(k => k !== '');
+
+  if (!title || !content) return;
+
+  const newQuestion = {
+    id: questions.length > 0 ? Math.max(...questions.map(q => q.id)) + 1 : 1,
+    title,
+    content,
+    author: currentUser.email,
+    keywords: keywords?.length ? keywords : ['general'],
+    upvotes: 0,
+    downvotes: 0,
+    answers: []
+  };
+
+  questions.unshift(newQuestion);
+  saveQuestions();
+  displayQuestions(questions);
+}
+
+function updateQuestion(questionId) {
+  const question = questions.find(q => q.id === questionId);
+  if (!question || question.author !== currentUser.email) return;
+
+  question.title = document.getElementById('questionTitle')?.value || question.title;
+  question.content = document.getElementById('questionDetails')?.value || question.content;
+  question.keywords = document.getElementById('questionKeywords')?.value
+    .split(',')
+    .map(k => k.trim().toLowerCase())
+    .filter(k => k !== '') || question.keywords;
+
+  saveQuestions();
+  displayQuestions(questions);
+}
+
+// Question management functions
+function editQuestion(questionId) {
+  const question = questions.find(q => q.id === questionId);
+  if (!question || !currentUser || question.author !== currentUser.email) return;
+
+  document.getElementById('questionTitle').value = question.title;
+  document.getElementById('questionDetails').value = question.content;
+  document.getElementById('questionKeywords').value = question.keywords.join(', ');
+  elements.questionForm.dataset.editing = questionId;
+  showQuestionForm();
+}
+
+function deleteQuestion(questionId) {
+  if (!currentUser) return;
+
+  const question = questions.find(q => q.id === questionId);
+  if (question && question.author === currentUser.email) {
+    if (confirm('Are you sure you want to delete this question?')) {
+      questions = questions.filter(q => q.id !== questionId);
+      saveQuestions();
+      displayQuestions(questions);
+    }
+  }
+}
+
+// Voting functions
+function upvoteQuestion(questionId) {
+  if (!currentUser) return;
+
+  const question = questions.find(q => q.id === questionId);
+  if (question && question.author !== currentUser.email) {
+    question.upvotes++;
+    saveQuestions();
+    displayQuestions(questions);
+  }
+}
+
+function downvoteQuestion(questionId) {
+  if (!currentUser) return;
+
+  const question = questions.find(q => q.id === questionId);
+  if (question && question.author !== currentUser.email) {
+    question.downvotes++;
+    saveQuestions();
+    displayQuestions(questions);
+  }
+}
+
+// Utility functions
+function searchQuestions() {
+  const searchTerm = elements.searchInput?.value.toLowerCase();
+  if (!searchTerm) {
+    displayQuestions(questions);
+    return;
+  }
+
+  const filteredQuestions = questions.filter(question => {
+    return question.title.toLowerCase().includes(searchTerm) ||
+           question.content.toLowerCase().includes(searchTerm) ||
+           question.keywords.some(k => k.includes(searchTerm));
+  });
+
+  displayQuestions(filteredQuestions);
+}
+
+function saveQuestions() {
+  localStorage.setItem('questions', JSON.stringify(questions));
+}
+
+// Make functions available globally
+window.upvoteQuestion = upvoteQuestion;
+window.downvoteQuestion = downvoteQuestion;
+window.editQuestion = editQuestion;
+window.deleteQuestion = deleteQuestion;
+window.showAnswerForm = showAnswerForm;
