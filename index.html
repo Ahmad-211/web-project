@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ahmad | Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#"><span>Muhammad </span>Ahmad</a>
+                </div>
+                 <div class="toggle-theme">
+    <button id="theme-toggle">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+  </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="download-cv">
+                    <a href="#" class="btn btn-primary">Download CV</a>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <div class="profile-img">
+                        <img src="pic2.jpeg" alt="Muhammad Ahmad">
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Muhammad Ahmad</span></h1>
+                    <h2>Full Stack Developer</h2>
+                    <p>A passionate developer specializing in building exceptional digital experiences</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-primary">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                        <a href="#projects" class="btn btn-outline">View My Work</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://github.com/Ahmad-211" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-ahmad-nadeem-716416353/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Full Stack Developer with 5+ years of experience building web applications and digital products. I specialize in JavaScript, HTML/CSS, and modern web technologies.</p>
+                    <p>My journey in tech began when I built my first website at 15. Since then, I've worked with startups and established companies to create user-friendly, scalable solutions that solve real-world problems.</p>
+                    <p>When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new technologies.</p>
+                </div>
+                <div class="about-image">
+                    <img src="pic.JPEG.jpeg" alt="About Me">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-container">
+                <div class="skills-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="frontend">Frontend</button>
+                        <button class="tab-btn" data-tab="backend">Backend</button>
+                        <button class="tab-btn" data-tab="tools">Tools</button>
+                        <button class="tab-btn" data-tab="soft">Soft Skills</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="frontend">
+                            <div class="skills-grid">
+                                <div class="skill-item">HTML5</div>
+                                <div class="skill-item">CSS3</div>
+                                <div class="skill-item">JavaScript</div>
+                                <div class="skill-item">React</div>
+                                <div class="skill-item">Vue.js</div>
+                                <div class="skill-item">Responsive Design</div>
+                                <div class="skill-item">SASS</div>
+                                <div class="skill-item">Bootstrap</div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="backend">
+                            <div class="skills-grid">
+                                <div class="skill-item">Node.js</div>
+                                <div class="skill-item">Express</div>
+                                <div class="skill-item">MongoDB</div>
+                                <div class="skill-item">PostgreSQL</div>
+                                <div class="skill-item">REST API</div>
+                                <div class="skill-item">GraphQL</div>
+                                <div class="skill-item">Firebase</div>
+                                <div class="skill-item">AWS</div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tools">
+                            <div class="skills-grid">
+                                <div class="skill-item">Git</div>
+                                <div class="skill-item">GitHub</div>
+                                <div class="skill-item">VS Code</div>
+                                <div class="skill-item">Docker</div>
+                                <div class="skill-item">Figma</div>
+                                <div class="skill-item">Webpack</div>
+                                <div class="skill-item">Jest</div>
+                                <div class="skill-item">CI/CD</div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="soft">
+                            <div class="skills-grid">
+                                <div class="skill-item">Problem Solving</div>
+                                <div class="skill-item">Communication</div>
+                                <div class="skill-item">Teamwork</div>
+                                <div class="skill-item">Time Management</div>
+                                <div class="skill-item">Adaptability</div>
+                                <div class="skill-item">Leadership</div>
+                                <div class="skill-item">Critical Thinking</div>
+                                <div class="skill-item">Creativity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="images.jpg" alt="E-Commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A full-featured online store with payment processing, user authentication, and inventory management.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline">View Code <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="tsk mngnment .png" alt="Task Management App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A productivity application with drag-and-drop interface, team collaboration, and real-time updates.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline">View Code <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Fitness.jpg" alt="Health & Fitness Tracker">
+                    </div>
+                    <div class="project-content">
+                        <h3>Health & Fitness Tracker</h3>
+                        <p>A mobile-responsive application for tracking workouts, nutrition, and health metrics with data visualization.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-sm">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="btn btn-sm btn-outline">View Code <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="#" class="btn btn-outline">View All Projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="timeline">
+                <!-- Job 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Frontend Developer</h3>
+                            <span class="company">Tech Innovations Inc.</span>
+                            <span class="date">Jan 2021 - Present</span>
+                        </div>
+                        <p>Lead the frontend development team in building responsive web applications. Implemented modern JavaScript patterns and optimized performance across multiple projects.</p>
+                        <ul class="achievements">
+                            <li>Reduced load time by 40% through code splitting and lazy loading</li>
+                            <li>Implemented CI/CD pipeline that decreased deployment time by 60%</li>
+                            <li>Mentored junior developers and established coding standards</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Full Stack Developer</h3>
+                            <span class="company">Digital Solutions LLC</span>
+                            <span class="date">Mar 2018 - Dec 2020</span>
+                        </div>
+                        <p>Developed and maintained full-stack applications using JavaScript, Node.js, and MongoDB. Collaborated with design and product teams to deliver user-friendly interfaces.</p>
+                        <ul class="achievements">
+                            <li>Built RESTful APIs that handled 1M+ requests per day</li>
+                            <li>Integrated payment processing system that increased sales by 25%</li>
+                            <li>Implemented responsive design that improved mobile user retention by 30%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Web Developer</h3>
+                            <span class="company">Creative Agency Co.</span>
+                            <span class="date">Jun 2016 - Feb 2018</span>
+                        </div>
+                        <p>Created custom websites and web applications for clients across various industries. Focused on responsive design and cross-browser compatibility.</p>
+                        <ul class="achievements">
+                            <li>Delivered 20+ client projects on time and within budget</li>
+                            <li>Developed custom CMS that reduced content update time by 50%</li>
+                            <li>Implemented SEO best practices that improved client search rankings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>ahmadnadeem724489@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>linkedin.com/in/muhammad-ahmad-nadeem</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>github.com/Ahmad-211</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="year"></span> Muhammad Ahmad. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Ahmad-211" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammad-ahmad-nadeem-716416353/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
